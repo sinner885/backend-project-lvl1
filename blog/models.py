@@ -2,14 +2,13 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from wagtail.models import Page
-from wagtail import blocks
+# from wagtail import blocks
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel
 from wagtail.blocks.field_block import RichTextBlock, RawHTMLBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.search import index
- 
 
 
 class BlogIndexPage(Page):
@@ -26,7 +25,7 @@ class BlogPage(Page):
     subpage_types = []
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250, help_text='суть статьи',
-         blank=True)
+                             blank=True)
     body = StreamField([
         ('paragraph', RichTextBlock()),
         ('code', RawHTMLBlock()),
@@ -48,5 +47,3 @@ class BlogPage(Page):
     class Meta:
         verbose_name = _('Blog post')
         verbose_name_plural = _('Blog posts')
-
-
