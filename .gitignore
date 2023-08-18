@@ -43,3 +43,5 @@ Thumbs.db
 /media/
 /static/
 */static/
+*.sqlite3
+db.sqlite3
